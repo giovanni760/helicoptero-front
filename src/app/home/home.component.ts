@@ -80,6 +80,20 @@ export class HomeComponent {
   }
 
   addHelicoptero() {
+      if (
+    !this.helicopteroNombre.trim() ||
+    !this.helicopteroModelo.trim() ||
+    !this.helicopteroUrl.trim()
+  ) {
+    alert('Todos los campos son obligatorios.');
+    return;
+  }
+
+  // Validación simple de URL
+  if (!this.helicopteroUrl.startsWith('http')) {
+    alert('La URL debe comenzar con http o https.');
+    return;
+  }
     const nuevo: Helicoptero = {
       id: 0,
       nombre: this.helicopteroNombre,
@@ -89,10 +103,19 @@ export class HomeComponent {
     };
 
     console.log('Helicoptero agregada:', nuevo);
-    this.heliService.postHelicoptero(nuevo).subscribe((respuesta: any) => {
-      console.log('Canción agregada:', respuesta);
+     this.heliService.postHelicoptero(nuevo).subscribe({
+    next: (respuesta: any) => {
+      console.log('✅ Helicóptero agregado:', respuesta);
       this.getHelicopteros();
-    });
+      this.helicopteroNombre = '';
+      this.helicopteroModelo = '';
+      this.helicopteroUrl = '';
+    },
+    error: (err) => {
+      console.error('❌ Error al agregar helicóptero:', err);
+      alert('Error al guardar. Verifica tus datos o tu sesión.');
+    }
+  });
   }
 
 

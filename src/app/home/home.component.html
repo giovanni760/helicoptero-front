@@ -11,13 +11,12 @@
     </div>
   </form>
 
-  <!-- Formulario de helicóptero -->
-  <form class="song-form" (submit)="addHelicoptero(); $event.preventDefault()">
-    <input type="text" class="input" placeholder="Nombre del helicóptero..." [(ngModel)]="helicopteroNombre" name="nombre" />
-    <input type="text" class="input" placeholder="Modelo..." [(ngModel)]="helicopteroModelo" name="modelo" />
-    <input type="text" class="input" placeholder="URL de la imagen..." [(ngModel)]="helicopteroUrl" name="url" />
-    <button type="submit" class="submit-btn">Agregar helicóptero</button>
-  </form>
+ <form class="song-form" (ngSubmit)="addHelicoptero()">
+  <input class="input" [(ngModel)]="helicopteroNombre" name="nombre" placeholder="Nombre" required />
+  <input class="input" [(ngModel)]="helicopteroModelo" name="modelo" placeholder="Modelo" required />
+  <input class="input" [(ngModel)]="helicopteroUrl" name="urlFoto" placeholder="URL de Foto" required />
+  <button class="submit-btn" type="submit">Agregar Helicóptero</button>
+</form>
 
   <!-- Lista de helicópteros -->
   <div class="cancion-card" *ngFor="let h of helicopteros">
@@ -55,6 +54,7 @@
 
     <!-- 🗑️ Botón para borrar helicóptero -->
     <button class="delete-btn" (click)="borrarHelicoptero(h.id)">🗑️ Borrar helicóptero</button>
+
   </div>
 
   <!-- Paginación -->
