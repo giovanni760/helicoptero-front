@@ -1,0 +1,124 @@
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #833ab4, #fd1d1d, #fcb045);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 1rem;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.login-card {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.logo {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #ddd;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: #ffe26b;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #2c2c3e;
+  color: white;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+.form-group input:focus {
+  outline: none;
+  border: 2px solid #fd1d1d;
+  background-color: #33334d;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.login-button:hover {
+  opacity: 0.9;
+}
+
+.footer-links {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.footer-links a {
+  color: #fcb045;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffe26b;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

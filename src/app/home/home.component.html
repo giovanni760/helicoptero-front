@@ -1,0 +1,66 @@
+<div class="main-container">
+  <h2 class="welcome-title">🚁 Bienvenido, {{ username }}</h2>
+
+  <!-- Buscador -->
+  <form class="search-form" (submit)="buscarHelicopteros(); $event.preventDefault()">
+    <input type="text" class="input search-input" placeholder="🔍 Buscar por nombre o modelo..."
+      [(ngModel)]="terminoBusqueda" name="busqueda" />
+    <div class="search-buttons">
+      <button type="submit" class="submit-btn">Buscar</button>
+      <button type="button" class="clear-btn" (click)="limpiarBusqueda()">Limpiar</button>
+    </div>
+  </form>
+
+  <!-- Formulario de helicóptero -->
+  <form class="song-form" (submit)="addHelicoptero(); $event.preventDefault()">
+    <input type="text" class="input" placeholder="Nombre del helicóptero..." [(ngModel)]="helicopteroNombre" name="nombre" />
+    <input type="text" class="input" placeholder="Modelo..." [(ngModel)]="helicopteroModelo" name="modelo" />
+    <input type="text" class="input" placeholder="URL de la imagen..." [(ngModel)]="helicopteroUrl" name="url" />
+    <button type="submit" class="submit-btn">Agregar helicóptero</button>
+  </form>
+
+  <!-- Lista de helicópteros -->
+  <div class="cancion-card" *ngFor="let h of helicopteros">
+    <div class="cancion-info">
+      <h3>{{ h.nombre }} - {{ h.modelo }}</h3>
+      <p>Publicado por: {{ h.postedBy?.username || 'Desconocido' }}</p>
+      <img [src]="h.urlFoto"  />
+      <p *ngIf="h.reaccionMasVotada">
+        🌟 Reacción más votada: <strong>{{ h.reaccionMasVotada }}</strong>
+      </p>
+    </div>
+
+    <!-- ✅ Reacciones -->
+    <div class="reactions">
+      <button (click)="reaccionar(h.id, 1)">👍 Me gusta</button>
+      <button (click)="reaccionar(h.id, 2)">❤️ Me encanta</button>
+      <button (click)="reaccionar(h.id, 3)">😂 Me divierte</button>
+      <button (click)="reaccionar(h.id, 4)">😮 Me sorprende</button>
+      <button (click)="reaccionar(h.id, 5)">😢 Me entristece</button>
+    </div>
+
+    <!-- Comentarios -->
+    <div class="comentarios" *ngIf="h.comentarios?.length">
+      <div *ngFor="let comentario of h.comentarios">
+        <strong>{{ comentario.nombreUsuario }}:</strong> {{ comentario.contenido }}
+      </div>
+    </div>
+
+    <!-- Agregar comentario -->
+    <form class="comentario-form" (submit)="crearComentario(h); $event.preventDefault()">
+      <input type="text" [(ngModel)]="h.nuevoComentario" [name]="'comentario' + h.id"
+        placeholder="Escribe un comentario..." />
+      <button type="submit">Comentar</button>
+    </form>
+
+    <!-- 🗑️ Botón para borrar helicóptero -->
+    <button class="delete-btn" (click)="borrarHelicoptero(h.id)">🗑️ Borrar helicóptero</button>
+  </div>
+
+  <!-- Paginación -->
+  <div class="paginacion">
+    <button (click)="paginaActual = paginaActual - 1; getHelicopteros()" [disabled]="paginaActual === 0">Anterior</button>
+    <span>Página {{ paginaActual + 1 }} de {{ totalPaginas }}</span>
+    <button (click)="paginaActual = paginaActual + 1; getHelicopteros()" [disabled]="paginaActual + 1 >= totalPaginas">Siguiente</button>
+  </div>
+</div>

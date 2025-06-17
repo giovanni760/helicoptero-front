@@ -1,0 +1,197 @@
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.main-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+  color: #f1f1f1;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 0 30px #000000aa;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+.search-form,
+.song-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 0 12px #00000044;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.input {
+  padding: 1rem;
+  border: 1px solid #555;
+  border-radius: 10px;
+  background: #2a2a2a;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #fd1d1d;
+  background: #303030;
+}
+
+.input::placeholder {
+  color: #aaa;
+}
+
+.submit-btn,
+.clear-btn {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  color: white;
+}
+
+.submit-btn:hover,
+.clear-btn:hover {
+  opacity: 0.9;
+}
+
+.search-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.cancion-card {
+  background: #1b1b1b;
+  border-radius: 16px;
+  padding: 1.2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px #00000066;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.cancion-info h3 {
+  margin: 0.5rem 0;
+  color: #f3f3f3;
+}
+
+.cancion-info img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 12px;
+  border: 2px solid #fcb045;
+}
+
+.reactions button {
+  background: #2b2b2b;
+  color: #fcb045;
+  border: none;
+  padding: 0.6rem 1rem;
+  margin: 0.3rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.reactions button:hover {
+  background: #3a3a3a;
+}
+
+.comentarios {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background: #2e2e2e;
+  border-radius: 10px;
+}
+
+.comentario-form {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.comentario-form input {
+  flex: 1;
+  padding: 0.6rem;
+  background: #3a3a3a;
+  border: none;
+  color: white;
+  border-radius: 8px;
+}
+
+.comentario-form button {
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.paginacion {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.paginacion button {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  border: none;
+  margin: 0 0.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.paginacion button:hover {
+  opacity: 0.9;
+}
+
+.paginacion span {
+  margin: 0 1rem;
+  font-weight: bold;
+  color: #eee;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

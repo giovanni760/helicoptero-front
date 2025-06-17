@@ -1,0 +1,141 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  padding: 1rem;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.register-card {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  color: #f5f5f5;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.logo {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #ddd;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  color: #eee;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  background: #2c2c3e;
+  color: white;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+input::placeholder {
+  color: #bbb;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #fcb045;
+  background-color: #33334d;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: #aaa;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.register-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.register-button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.register-button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.footer-links {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.footer-links a {
+  color: #fcb045;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffe26b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
